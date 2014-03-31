@@ -26,39 +26,39 @@
         <li>{{ name }}</li>
         {{else}}
         ...
-        {{/repo}}
+      {{/repo}}
 
-        Inverted sections are supported too
-        {{^repo somethingElse}}
-          No repos :(
-          {{/repo}}
+      Inverted sections are supported too
+      {{^repo somethingElse}}
+        No repos :(
+      {{/repo}}
 
-          You can {{{yield}}} here
+      You can {{{yield}}} here
 
-          {{! <> this is a comment TODO:}}
+      {{! <> this is a comment TODO:}}
 
-          This is a partial   {{> partial1 arg="1" }}
-          Yet another partial {{< partial2 }}, for ctemplate
+      This is a partial   {{> partial1 arg="1" }}
+      Yet another partial {{< partial2 }}, for ctemplate
 
-          {{=<% %>=}}Sorry, cusomized delimiter not handled yet<%={{}}=%>
+      {{=<% %>=}}Sorry, cusomized delimiter not handled yet<%={{}}=%>
 
-          {{#if some_helper}}
-            And here is an example of handlebars if...
-            {{else}}
-            ... with optional else added. Try matchit `%` command over if/else/if.
-            {{/if}}
+      {{#if some_helper}}
+        And here is an example of handlebars if...
+        {{else}}
+        ... with optional else added. Try matchit `%` command over if/else/if.
+      {{/if}}
 
-            {{#with dataContext}}
-              ...
-              {{else}}
-              ...
-              {{/with}}
+      {{#with dataContext}}
+        ...
+        {{else}}
+        ...
+      {{/with}}
 
-              Thanks goes to {{@defunkt}}
-              Feedback/blames go to {{@juvenn}}
-              {{Frustrations}} go to /dev/null
-            </div>
+      Thanks goes to {{@defunkt}}
+      Feedback/blames go to {{@juvenn}}
+      {{Frustrations}} go to /dev/null
+    </div>
 
-          </body>
-        </html>
+  </body>
+</html>
 
