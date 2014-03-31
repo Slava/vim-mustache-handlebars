@@ -72,10 +72,11 @@ syntax cluster htmlMustacheContainer add=htmlHead,htmlTitle,htmlString,htmlH1,ht
 " Hilighting
 " mustacheInside hilighted as Number, which is rarely used in html
 " you might like change it to Function or Identifier
+HtmlHiLink mustacheInside Number
 HtmlHiLink mustacheVariable Number
 HtmlHiLink mustacheVariableUnescape Number
-HtmlHiLink mustachePartial Number
-HtmlHiLink mustacheSection Number
+HtmlHiLink mustachePartial PreProc
+HtmlHiLink mustacheSection PreProc
 HtmlHiLink mustacheMarkerSet Number
 
 HtmlHiLink mustacheComment Comment
@@ -92,8 +93,8 @@ HtmlHiLink mustacheQString String
 HtmlHiLink mustacheDQString String
 
 syn region mustacheScriptTemplate start=+<script [^>]*type *=[^>]*text/\(mustache\|x-handlebars-template\)[^>]*>+
-\                       end=+</script>+me=s-1 keepend
-\                       contains=mustacheInside,@htmlMustacheContainer,htmlTag,htmlEndTag,htmlTagName,htmlSpecialChar
+      \                       end=+</script>+me=s-1 keepend
+      \                       contains=mustacheInside,@htmlMustacheContainer,htmlTag,htmlEndTag,htmlTagName,htmlSpecialChar
 
 let b:current_syntax = "mustache"
 delcommand HtmlHiLink
