@@ -55,6 +55,16 @@ syntax region mustacheBlockComment start=/{{!--/rs=s+2 end=/--}}/re=e-2 contains
 syntax region mustacheQString start=/'/ skip=/\\'/ end=/'/ contained containedin=mustacheInside
 syntax region mustacheDQString start=/"/ skip=/\\"/ end=/"/ contained containedin=mustacheInside
 
+syntax region   mustacheHelperRegion
+      \ start=+{{#\z\([^ /!?<>"'{}]\+\)+
+      \ skip=+{{!\_.\{-}}}+
+      \ end=+{{/\z1\_\s\{-}}}+
+      \ fold
+      \ contains=TOP,@htmlMustacheContainer,mustacheError,mustacheOperators,mustacheSection,mustachePartial,mustacheMarkerSet,mustacheHandlebars,mustacheUnescape,mustacheConditionals,mustacheHelpers,mustacheComment,mustacheBlockComment,mustacheQString,mustacheDQString,mustacheHelperRegion
+      \ keepend
+      \ extend
+
+
 " Clustering
 syntax cluster htmlMustacheContainer add=htmlHead,htmlTitle,htmlString,htmlH1,htmlH2,htmlH3,htmlH4,htmlH5,htmlH6,htmlLink,htmlBold,htmlUnderline,htmlItalic,htmlValue
 
