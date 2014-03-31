@@ -20,8 +20,9 @@
       Mustaches hilighted in
       <span class="color:{{awesome_color}};font-size:1.2em">attribute value</span>
 
-      {{#repo}}
+      {{#repo align="left"}}
       This is an mustache [enumerable] section
+      {{! some comments inside}}
       <li>{{ name }}</li>
       {{/repo}}
 
@@ -34,7 +35,7 @@
 
       {{! <> this is a comment TODO:}}
 
-      This is a partial   {{> partial1 }}
+      This is a partial   {{> partial1 arg="1" }}
       Yet another partial {{< partial2 }}, for ctemplate
 
       {{=<% %>=}}Sorry, cusomized delimiter not handled yet<%={{}}=%>
