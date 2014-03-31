@@ -24,10 +24,12 @@
       This is an mustache [enumerable] section
       {{! some comments inside}}
       <li>{{ name }}</li>
+      {{else}}
+        ...
       {{/repo}}
 
       Inverted sections are supported too
-      {{^repo}}
+      {{^repo somethingElse}}
         No repos :(
       {{/repo}}
 
@@ -45,6 +47,12 @@
       {{else}}
         ... with optional else added. Try matchit `%` command over if/else/if.
       {{/if}}
+
+      {{#with dataContext}}
+        ...
+      {{else}}
+        ...
+      {{/with}}
 
       Thanks goes to {{@defunkt}}
       Feedback/blames go to {{@juvenn}}
