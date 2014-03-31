@@ -1,5 +1,18 @@
-mustache and handlebars mode for vim
-====================================
+spacebars and mustache and handlebars mode for vim
+==================================================
+
+This is a fork of [vim-mustache-handlebars] adapted for [Spacebars]. In addition
+to the corrected syntax this fork also has folds defined and the correct
+indentation is in plans.
+
+[vim-mustache-handlebars]: https://github.com/mustache/vim-mustache-handlebars
+[Spacebars]: https://github.com/meteor/meteor/tree/master/packages/spacebars
+
+The Readme of the original is following. For installation details, be sure to
+use the git-url of this fork (`git://github.com/Slava/vim-spacebars.git`) and
+the name `Slava/vim-spacebars` if you use Bundle/NeoBundle/Vundle.
+
+* * *
 
 A vim plugin for working with [mustache][mustache] and
 [handlebars][handlebars] templates. It has:
