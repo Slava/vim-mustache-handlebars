@@ -35,25 +35,25 @@ endif
 syntax match spacebarsError '}}}\?'
 syntax match spacebarsInsideError '{{[{#<>=!\/]\?'
 syntax region spacebarsInside start=/{{/ end=/}}}\?/ keepend containedin=TOP,@htmlSpacebarsContainer
-syntax match spacebarsOperators '=\|\.\|/' contained containedin=mustacheInside,@htmlSpacebarsContainer
-syntax region spacebarsSection start='{{[#^/]'lc=2 end='[} ]'me=e-1 contained containedin=mustacheInside,@htmlSpacebarsContainer
-syntax region spacebarsPartial start=/{{[<>]\s*/lc=2 end=+[} ]+me=e-1 contained containedin=mustacheInside,@htmlSpacebarsContainer
-syntax region spacebarsMarkerSet start=/{{=/lc=2 end=/=}}/me=e-2 contained containedin=mustacheInside,@htmlSpacebarsContainer
-syntax match spacebarsHandlebars '{{\|}}' contained containedin=mustacheInside,@htmlSpacebarsContainer
-syntax match spacebarsUnescape '{{{\|}}}' contained containedin=mustacheInside,@htmlSpacebarsContainer
-syntax match spacebarsConditionals '\([/#]\(if\>\|unless\>\)\|\<else\>\)' contained containedin=mustacheInside
-syntax match spacebarsHelpers '[/#]\(with\|each\)' contained containedin=mustacheSection
-syntax region spacebarsComment start=/{{!/rs=s+2 end=/}}/re=e-2 contains=Todo contained containedin=mustacheInside,@htmlSpacebarsContainer
+syntax match spacebarsOperators '=\|\.\|/' contained containedin=spacebarsInside,@htmlSpacebarsContainer
+syntax region spacebarsSection start='{{[#^/]'lc=2 end='[} ]'me=e-1 contained containedin=spacebarsInside,@htmlSpacebarsContainer
+syntax region spacebarsPartial start=/{{[<>]\s*/lc=2 end=+[} ]+me=e-1 contained containedin=spacebarsInside,@htmlSpacebarsContainer
+syntax region spacebarsMarkerSet start=/{{=/lc=2 end=/=}}/me=e-2 contained containedin=spacebarsInside,@htmlSpacebarsContainer
+syntax match spacebarsHandlebars '{{\|}}' contained containedin=spacebarsInside,@htmlSpacebarsContainer
+syntax match spacebarsUnescape '{{{\|}}}' contained containedin=spacebarsInside,@htmlSpacebarsContainer
+syntax match spacebarsConditionals '\([/#]\(if\>\|unless\>\)\|\<else\>\)' contained containedin=spacebarsInside
+syntax match spacebarsHelpers '[/#]\(with\|each\)' contained containedin=spacebarsSection
+syntax region spacebarsComment start=/{{!/rs=s+2 end=/}}/re=e-2 contains=Todo contained containedin=spacebarsInside,@htmlSpacebarsContainer
 syntax region spacebarsBlockComment start=/{{!--/rs=s+2 end=/--}}/re=e-2 contains=Todo
-syntax region spacebarsQString start=/'/ skip=/\\'/ end=/'/ contained containedin=mustacheInside
-syntax region spacebarsDQString start=/"/ skip=/\\"/ end=/"/ contained containedin=mustacheInside
+syntax region spacebarsQString start=/'/ skip=/\\'/ end=/'/ contained containedin=spacebarsInside
+syntax region spacebarsDQString start=/"/ skip=/\\"/ end=/"/ contained containedin=spacebarsInside
 
 syntax region   spacebarsHelperRegion
       \ start=+{{#\z\([^ /!?<>"'{}]\+\)+
       \ skip=+{{!\_.\{-}}}+
       \ end=+{{/\z1\_\s\{-}}}+
       \ fold
-      \ contains=TOP,@htmlSpacebarsContainer,spacebarsError,mustacheOperators,mustacheSection,mustachePartial,mustacheMarkerSet,mustacheHandlebars,mustacheUnescape,mustacheConditionals,mustacheHelpers,mustacheComment,mustacheBlockComment,mustacheQString,mustacheDQString,mustacheHelperRegion
+      \ contains=TOP,@htmlSpacebarsContainer,spacebarsError,spacebarsOperators,spacebarsSection,spacebarsPartial,spacebarsMarkerSet,spacebarsHandlebars,spacebarsUnescape,spacebarsConditionals,spacebarsHelpers,spacebarsComment,spacebarsBlockComment,spacebarsQString,spacebarsDQString,spacebarsHelperRegion
       \ keepend
       \ extend
 
@@ -85,7 +85,7 @@ HtmlHiLink spacebarsHelpers Repeat
 HtmlHiLink spacebarsQString String
 HtmlHiLink spacebarsDQString String
 
-syn region spacebarsScriptTemplate start=+<script [^>]*type *=[^>]*text/\(mustache\|x-handlebars-template\)[^>]*>+
+syn region spacebarsScriptTemplate start=+<script [^>]*type *=[^>]*text/\(spacebars\|x-handlebars-template\)[^>]*>+
       \                       end=+</script>+me=s-1 keepend
       \                       contains=spacebarsInside,@htmlSpacebarsContainer,htmlTag,htmlEndTag,htmlTagName,htmlSpecialChar
 
