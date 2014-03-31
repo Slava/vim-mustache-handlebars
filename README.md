@@ -8,6 +8,8 @@ indentation is in plans.
 [vim-mustache-handlebars]: https://github.com/mustache/vim-mustache-handlebars
 [Spacebars]: https://github.com/meteor/meteor/tree/master/packages/spacebars
 
+![screenshot](./img/spacebars.png)
+
 The Readme of the original is following. For installation details, be sure to
 use the git-url of this fork (`git://github.com/Slava/vim-spacebars.git`) and
 the name `Slava/vim-spacebars` if you use Bundle/NeoBundle/Vundle.
