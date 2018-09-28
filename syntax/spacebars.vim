@@ -41,7 +41,7 @@ syntax region spacebarsPartial start=/{{[<>]\s*/lc=2 end=+[} ]+me=e-1 contained 
 syntax region spacebarsMarkerSet start=/{{=/lc=2 end=/=}}/me=e-2 contained containedin=spacebarsInside,@htmlSpacebarsContainer
 syntax match spacebarsHandlebars '{{\|}}' contained containedin=spacebarsInside,@htmlSpacebarsContainer
 syntax match spacebarsUnescape '{{{\|}}}' contained containedin=spacebarsInside,@htmlSpacebarsContainer
-syntax match spacebarsConditionals '\([/#]\(if\>\|unless\>\)\|\<else\>\)' contained containedin=spacebarsInside
+syntax match spacebarsConditionals '\([/#]\(if\>\|unless\>\)\|\<else if\>\|\<else\>\)' contained containedin=spacebarsInside
 syntax match spacebarsHelpers '[/#]\(with\|each\)' contained containedin=spacebarsSection
 syntax region spacebarsComment start=/{{!/rs=s+2 end=/}}/re=e-2 contains=Todo contained containedin=spacebarsInside,@htmlSpacebarsContainer
 syntax region spacebarsBlockComment start=/{{!--/rs=s+2 end=/--}}/re=e-2 contains=Todo
